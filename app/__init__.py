@@ -1,4 +1,8 @@
 from flask import Flask
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -9,5 +13,10 @@ app.register_blueprint(auth_blueprint)
 # blueprint for non-authentication parts of the app
 from .main import main as main_blueprint
 app.register_blueprint(main_blueprint)
+
+secret_key = os.getenv('SECRET_KEY')
+#database_url = os.getenv('DATABASE_URL')
+api_key = os.getenv('API_KEY')
+
 
 from app import auth, main
