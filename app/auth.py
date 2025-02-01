@@ -1,15 +1,50 @@
-from flask import Blueprint
+from flask import render_template, request, redirect, Blueprint, url_for, flash
+from supabase import create_client, Client
+import os, re
+
+supabase_key = os.getenv('SUPABASE_KEY')
+supabase_url = os.getenv('SUPABASE_URL')
+
+supabase: Client = create_client(supabase_url, supabase_key)
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login')
-def login():
-    return 'Login'
+def valid_email(email):
+    return re.match(r"^[\w\.-]+@[\w\.-]+\.\w+$", email)
 
-@auth.route('/signup')
+@auth.route('/signup/', methods=["GET","POST"])
 def signup():
-    response = supabase.auth.sign_up(
-    {"email": "email@example.com", "password": "password"}
-    )
-    return 'Signup'
+    if request.method == "POST":
+        email = request.form["nm"].strip()
+        passw = request.form["pass"].strip()
 
+        action = request.form.get("action")
+        if action == "submit":
+            if not valid_email(email):
+                flash("Invalid email format. Please enter a valid email.", "error")
+                return render_template("signup.html")
+
+            if len(passw) < 6:
+                flash("Password must be at least 6 characters long.", "error")
+                return render_template("signup.html")
+            
+            response = supabase.auth.sign_up(
+                {"email": email, "password": passw}
+            )
+            flash("Signup successful! Please log in.", "success")
+            return redirect(url_for('auth.login'))
+    return render_template("signup.html")
+
+@auth.route('/login/', methods=['GET','POST'])
+def login():
+    if request.method == "POST":
+        email = request.form["nm"].strip()
+        passw = request.form["pass"].strip()
+
+        action = request.form.get("action")
+        if action == "submit":
+            response = supabase.auth.sign_in_with_password(
+                {"email": email, "password": passw}
+            )
+            return redirect(url_for("main.index")) 
+    return render_template("login.html")
