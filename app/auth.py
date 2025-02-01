@@ -8,5 +8,8 @@ def login():
 
 @auth.route('/signup')
 def signup():
+    response = supabase.auth.sign_up(
+    {"email": "email@example.com", "password": "password"}
+    )
     return 'Signup'
 
