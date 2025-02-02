@@ -1,0 +1,30 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item .nav-link:hover {
+    color: black; /* Change to your desired text color on hover */
+    background-color: #f0f0f0; /* Change to your desired background color on hover */
+    /* Add any other styling you want for the hover effect */
+  }
+  
+  
+  .reset-button {
+    position: absolute;
+    top: 15px;
+    z-index: 1;
+    left: 16px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  #map-container {
+    height: 100%;
+    width: 100%;
+    /* temporarily set the background color so we can tell where the map container is positioned */
+    background-color: lightgrey;
+  }
