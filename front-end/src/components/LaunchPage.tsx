@@ -1,5 +1,6 @@
 import React from 'react';
 import './launch.css';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function LaunchPage() {
     return (
@@ -8,7 +9,9 @@ function LaunchPage() {
             <p> a lil world for girls to support girls </p>
             <div className="container">
                 <button> Log In </button>
-                <button> Signup </button>
+                <button> Signup 
+                    <ArrowForwardIcon />
+                </button>
             </div> 
         </div>  
     );

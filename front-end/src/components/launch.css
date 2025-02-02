@@ -1,6 +1,6 @@
 @font-face {
     font-family: "CosmicVibrant";
-    src:  local("CosmicVibrant"), url("../front-end/src/assets/fonts/CosmicVibrant.otf") format("opentype");;
+    src:  local("CosmicVibrant"), url("../front-end/src/public/fonts/CosmicVibrant.otf") format("opentype");;
     font-weight: normal;
     font-style: normal;
     font-display: swap;

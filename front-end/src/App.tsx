@@ -18,9 +18,6 @@ function App() {
           <Route path="/map" element={<Map />} />
         </Routes>    
           </main>
-        <div>
-          <LaunchPage />
-        </div>
       </BrowserRouter>
   )
 }

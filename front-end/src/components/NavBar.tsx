@@ -36,9 +36,9 @@ export default function Navbar() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem component="a" href='/map' onClick={handleClose}>Home</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Map</MenuItem>
+        <MenuItem component = "a" href='/map' onClick={handleClose}>Map</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </div>
