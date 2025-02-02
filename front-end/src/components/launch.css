@@ -12,6 +12,9 @@ h1 {
     padding-bottom: 0%;
   }
 
+button {
+  margin: 1em;
+}
 .container {
     display: flex;
     justify-content: center;
