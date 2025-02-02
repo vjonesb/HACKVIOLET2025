@@ -169,11 +169,10 @@ const Mapbox = () => {
 
 
   return (
-    <div>
+    <>
       <button className="reset-button" onClick={handleButtonClick}>Reset</button>
       <div id = 'map-container' ref={mapContainerRef} className= "mapboxgl-canvas"></div>
-    </div>
-    
+    </>
   );
 };
 

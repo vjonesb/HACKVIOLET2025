@@ -14,13 +14,17 @@ h1 {
 
 button {
   margin: 1em;
+  font-weight: 700;
 }
 .container {
     display: flex;
     justify-content: center;
 }
+
 .container2 {
-  float: right;
-  display: flex;
-  justify-content: center;
+  z-index: 6;
+  position: sticky;
+  float: top left;
+  
 }
+
