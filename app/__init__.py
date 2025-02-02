@@ -14,7 +14,7 @@ app.register_blueprint(auth_blueprint)
 from .main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
-#secret_key = os.getenv('SECRET_KEY')
+app.secret_key = os.getenv('SECRET_KEY')
 #database_url = os.getenv('DATABASE_URL')
 
 from app import auth, main

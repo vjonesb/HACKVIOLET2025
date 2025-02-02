@@ -32,7 +32,8 @@ def signup():
                 {"email": email, "password": passw}
             )
             flash("Signup successful! Please log in.", "success")
-            return redirect(url_for('auth.login'))
+            #redirect to page that tells them to confirm their email
+            return redirect(url_for("main.index")) 
     return render_template("signup.html")
 
 @auth.route('/login/', methods=['GET','POST'])
