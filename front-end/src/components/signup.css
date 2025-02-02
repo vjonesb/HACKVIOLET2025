@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "CosmicVibrant";
+    src:  local("CosmicVibrant"), url("../front-end/src/public/fonts/CosmicVibrant.otf") format("opentype");;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+h1 {
+    font-family: 'CosmicVibrant', sans-serif;
+    font-size: 12em;
+    line-height: 1.1;
+    padding-bottom: 0%;
+  }
+
+button {
+  margin: 1em;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.container2 {
+  float: right;
+  display: flex;
+  justify-content: center;
+}
