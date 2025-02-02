@@ -12,11 +12,16 @@ auth = Blueprint('auth', __name__)
 def valid_email(email):
     return re.match(r"^[\w\.-]+@[\w\.-]+\.\w+$", email)
 
+def valid_username(username):
+    # Username should be 3-20 characters, alphanumeric and underscores only
+    return re.match(r"^[a-zA-Z0-9_]{3,20}$", username)
+
 @auth.route('/signup/', methods=["GET","POST"])
 def signup():
     if request.method == "POST":
         email = request.form["nm"].strip()
         passw = request.form["pass"].strip()
+        username = request.form["username"].strip()  # Add username field
 
         action = request.form.get("action")
         if action == "submit":
@@ -28,8 +33,21 @@ def signup():
                 flash("Password must be at least 6 characters long.", "error")
                 return render_template("signup.html")
             
+            if not valid_username(username):
+                flash("Username must be 3-20 characters long and contain only letters, numbers, and underscores.", "error")
+                return render_template("signup.html")
+            
             response = supabase.auth.sign_up(
-                {"email": email, "password": passw}
+                {
+                    "email": email, 
+                    "password": passw,
+                    "options": {
+                        "data": {
+                            "username": username,
+                            "full_name": username
+                        }
+                    }
+                }
             )
             flash("Signup successful! Please log in.", "success")
             #redirect to page that tells them to confirm their email
