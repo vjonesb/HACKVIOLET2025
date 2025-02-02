@@ -1,0 +1,5 @@
+# this is the .gitignore file
+.venv/
+.env
+.flaskenv
+**/__pycache__/
