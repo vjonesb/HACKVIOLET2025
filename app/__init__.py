@@ -1,10 +1,12 @@
 from flask import Flask
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
 app = Flask(__name__)
+cors = CORS(app, origins='*')
 
 # blueprint for auth routes in our app #new blueprint
 from .auth import auth as auth_blueprint

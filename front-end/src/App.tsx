@@ -3,6 +3,7 @@ import './App.css'
 import NavBar from './components/NavBar'
 import LaunchPage from './components/LaunchPage'
 import Map from './components/Map'
+import SignUp from './components/signup'
 import {Route, Routes, BrowserRouter } from 'react-router-dom'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={<LaunchPage />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/map" element={<Map />} />
         </Routes>    
           </main>
